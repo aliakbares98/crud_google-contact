@@ -1,0 +1,198 @@
+<mat-card>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  </form>
+  <div class="header_edit" fxFlex="60">
+    <mat-icon matTooltip="Cancel" class="pointer" ro uterLink="/">close</mat-icon>
+    <!-- uploadImg -->
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="80px">
+      <div>
+        <app-upload-img formControlName="uploadImg"></app-upload-img>
+      </div>
+      <h1>
+        Izabela Zieleziecka
+      </h1>
+    </div>
+    <!-- BtnSave -->
+    <div fxLayoutAlign="end center">
+      <button mat-raised-button color="primary" type="submit" disabled="!form.valid">Save</button>
+    </div>
+    <div class="mt-12">
+    </div>
+    <mat-divider inset="true"></mat-divider>
+    <div class="mt-12">
+
+      <!-- First Name -->
+      <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
+        <i class="material-icons mt_16">
+          person_outline
+        </i>
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput type="text" formControlName="firstName">
+          <button *ngIf="value" matSuffix mat-icon-button aria-label="" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <!-- Surname -->
+      <div class="ml_50" fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
+        <mat-form-field>
+          <mat-label>Surname</mat-label>
+          <input matInput type="text" formControlName="surname">
+          <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <!-- Company -->
+      <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
+        <i class="material-icons mt_16">
+          business
+        </i>
+        <mat-form-field>
+          <mat-label>Company</mat-label>
+          <input matInput type="text" formControlName="company">
+          <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          </button>
+        </mat-form-field>
+      </div>
+
+      <!-- JobTitle -->
+      <div class="ml_50" fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
+        <mat-form-field>
+          <mat-label>JobTitle</mat-label>
+          <input matInput type="text" formControlName="jobTitle">
+          <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <!-- Email & Label-->
+      <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
+        <i class="material-icons mt_16">
+          email
+        </i>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput type="text" formControlName="email">
+          <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearData()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Label</mat-label>
+          <input matInput type="text" [(ngModel)]="lable">
+          <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearData()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <!-- phone -->
+      <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
+        <i class="material-icons mt_16">
+          phone
+        </i>
+        <mat-form-field validationMessageContainer class="input-cellphone ">
+          <ngx-mat-intl-tel-input [preferredCountries]="['tr']" [enablePlaceholder]="true" [enableSearch]="true"
+            name="cellPhone" formControlName="cellPhone">
+          </ngx-mat-intl-tel-input>
+        </mat-form-field>
+      </div>
+
+      <!-- Birthday -->
+      <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
+        <i class="material-icons mt_16">
+          cake
+        </i>
+        <mat-form-field>
+          <mat-label>Birthday</mat-label>
+          <input matInput type="text" formControlName="birthday">
+          <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <p class="ml_50 gray">dd/mm/yyyy</p>
+
+      <!-- Notes -->
+      <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
+        <i class="material-icons mt_16">
+          note
+        </i>
+        <mat-form-field>
+          <mat-label>Notes</mat-label>
+          <input matInput type="text" formControlName="notes">
+          <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="showMore">
+        <!-- relationship -->
+        <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
+          <i class="material-icons">
+            nature
+          </i>
+          <mat-form-field>
+            <mat-label>relationship</mat-label>
+            <input matInput type="text" formControlNam="relationship">
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+
+        <!-- chat -->
+        <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
+          <i class="material-icons">
+            chat
+          </i>
+          <mat-form-field>
+            <mat-label>Chat</mat-label>
+            <input matInput type="text" formControlName="chat">
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+
+        <!-- InternetCall -->
+        <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
+          <i class="material-icons">
+            settings_phone
+          </i>
+          <mat-form-field>
+            <mat-label>InternetCall</mat-label>
+            <input matInput type="text" formControlName="internetCell">
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+
+        <!-- CustomField -->
+        <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
+          <i class="material-icons">
+            support_agent
+          </i>
+          <mat-form-field>
+            <mat-label>CustomField</mat-label>
+            <input matInput type="text" formControlName="customField">
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" (click)="showMoreInput()">Show more</button>
+
+    </div>
+  </div>
+
+</mat-card>

@@ -1,0 +1,34 @@
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.mt-12 {
+  margin-top: 12px;
+}
+.mt_16 {
+  margin-top: -16px;
+}
+.ml_50 {
+  margin-left: 50px;
+}
+.input-cellphone {
+  width: 385px;
+}
+.gray {
+  color: #d8d8d9;
+}
+.showMore {
+  color: #5a81c0;
+}
+.showMore:hover {
+  background-color: #e7e8e8;
+  cursor: pointer;
+}

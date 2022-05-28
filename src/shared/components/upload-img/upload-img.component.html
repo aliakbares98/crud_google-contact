@@ -1,0 +1,20 @@
+
+
+ <div class="container">
+	<div class="row custom-wrapper">
+					<div class="avatar-upload">
+						<div class="avatar-edit">
+							<input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)" />
+              <span class="material-icons  upload_icon" (click)="fileInput.click()" matTooltip="Set contact photo">
+                add_a_photo
+                </span>
+              <!-- <mat-icon >image_upload</mat-icon> -->
+            </div>
+            <div class="avatar-preview">
+              <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'">
+              </div>
+          </div>
+     </div>
+  </div>
+</div> 
+
